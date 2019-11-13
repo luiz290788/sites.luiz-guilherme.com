@@ -1,0 +1,6 @@
+ports:
+  - port: 8000
+vscode:
+  extensions:
+    - esbenp.prettier-vscode@3.3.5:hymh2pF6tmqx5D/GaBqYrg==
+image: node:lts
