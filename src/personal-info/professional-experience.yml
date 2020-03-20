@@ -1,0 +1,29 @@
+- company: Altassian
+  start: 2018
+  current: true
+  description: A very nice company to work
+  positions:
+    - title: Senior developer
+      start: 2018
+      current: true
+      description: Rockstar developer
+
+- company: Crossover
+  start: 2017
+  end: 2018
+  description: A very nice company to work
+  positions:
+    - title: Senior Software Architect
+      start: 2017
+      end: 2018
+      description: A very nice company to work
+
+- company: iFood
+  start: 2016
+  end: 2017
+  description: An insteresting place to work
+  positions:
+    - title: Developer
+      start: 2016
+      end: 2017
+      description: Making automated calls to clients.
