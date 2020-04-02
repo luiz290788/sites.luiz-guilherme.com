@@ -1,2 +1,2 @@
 export { Menu } from './Menu';
-export { Link } from './Link';
+export { ExternalLink } from './ExternalLink';

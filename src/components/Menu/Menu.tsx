@@ -4,12 +4,18 @@ import { css } from '@emotion/core';
 const menuStyles = css({
   display: 'flex',
   flexDirection: 'row',
-  margin: '10px 0',
+  margin: '0 0 16px',
   '& > *': {
-    margin: '0 5px',
+    margin: '0 8px',
   },
   '& :first-child': {
-    margin: '0 5px 0 0',
+    margin: '0 8px 0 0',
+  },
+  a: {
+    '&:visited': {
+      color: 'inherit',
+    },
+    textDecoration: 'underline',
   },
 });
 

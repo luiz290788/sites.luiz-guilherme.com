@@ -3,6 +3,7 @@ import { Global, css } from '@emotion/core';
 
 import theme from '../styles/theme';
 import { Header } from './Header';
+import { SiteMenu } from './SiteMenu';
 
 export const Layout = ({ children }) => (
   <React.Fragment>
@@ -12,9 +13,9 @@ export const Layout = ({ children }) => (
           color: theme.primaryColor,
           backgroundColor: 'white',
           fontFamily: "'Open Sans', sans-serif",
-          maxWidth: 600,
-          margin: '30px auto 0',
-          padding: '0 5px',
+          maxWidth: 800,
+          margin: '8px auto 0',
+          padding: '0 4px',
         },
         h1: {
           fontWeight: 800,
@@ -22,6 +23,7 @@ export const Layout = ({ children }) => (
         },
       })}
     />
+    <SiteMenu />
     <Header />
     {children}
   </React.Fragment>

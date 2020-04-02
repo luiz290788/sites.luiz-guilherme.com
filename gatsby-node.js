@@ -116,7 +116,10 @@ const createContentDirectoryPages = async ({ graphql, actions }) => {
           context: {
             directory: node.base,
             regex: `/^\/${node.base}.*$/`,
-            meta,
+            meta: {
+              menu: meta && meta.title !== undefined,
+              ...meta,
+            },
           },
         };
       }),

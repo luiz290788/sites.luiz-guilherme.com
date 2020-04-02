@@ -21,6 +21,7 @@ module.exports = {
         url: 'https://github.com/luiz290788/',
       },
     ],
+    homeLink: true,
   },
   plugins: [
     {

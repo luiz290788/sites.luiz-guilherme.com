@@ -10,7 +10,7 @@ const headerStyles = css({
   p: {
     fontSize: 14,
   },
-  paddingBottom: 40,
+  margin: '0 0 32px',
 });
 
 type Props = {};
