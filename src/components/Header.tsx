@@ -5,11 +5,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 const headerStyles = css({
   h1: {
     fontSize: 30,
+    fontWeight: 800,
   },
   p: {
     fontSize: 14,
   },
-
   paddingBottom: 40,
 });
 

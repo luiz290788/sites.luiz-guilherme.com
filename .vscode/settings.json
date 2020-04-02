@@ -1,4 +1,13 @@
 {
   "prettier.prettierPath": ".vscode/pnpify/prettier/index.js",
-  "typescript.tsdk": ".vscode/pnpify/typescript/lib"
+  "typescript.tsdk": ".vscode/pnpify/typescript/lib",
+  "spellright.language": [
+    "pt",
+    "en"
+  ],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext"
+  ]
 }

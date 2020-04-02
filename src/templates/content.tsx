@@ -1,11 +1,13 @@
 import React from 'react';
-
-import { Layout } from '../components/Layout';
+import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
+import { Layout } from '../components/Layout';
 
-// const templates = {
-//   blog: BlogTemplate,
-// };
+const styles = css({
+  h1: {
+    margin: '0 0 32px',
+  },
+});
 
 export default ({
   data: {
@@ -17,7 +19,10 @@ export default ({
   pathContext: { template },
 }) => (
   <Layout>
-    <div dangerouslySetInnerHTML={{ __html: html }} />
+    <div css={styles}>
+      <h1>{title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+    </div>
   </Layout>
 );
 

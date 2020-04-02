@@ -1,30 +1,45 @@
 const path = require('path');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  if (node.internal.type === 'MarkdownRemark') {
-    const parentNode = getNode(node.parent);
-    actions.createNodeField({
-      node,
-      name: 'template',
-      value: parentNode.relativeDirectory,
-    });
+const onType = (type, callback) => (...args) =>
+  args[0].node.internal.type === type ? callback(...args) : undefined;
 
-    const slug = createFilePath({
-      node,
-      getNode,
-      basePath: 'src/content',
-      trailingSlash: false,
-    });
-    actions.createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
-  }
+const onCreateMarkdown = ({ node, getNode, actions: { createNodeField } }) => {
+  const parentNode = getNode(node.parent);
+  createNodeField({
+    node,
+    name: 'template',
+    value: parentNode.relativeDirectory,
+  });
+  const slug = createFilePath({
+    node,
+    getNode,
+    basePath: 'src/content',
+    trailingSlash: false,
+  });
+  createNodeField({
+    node,
+    name: 'slug',
+    value: slug,
+  });
 };
 
-exports.createPages = async ({ graphql, actions }) => {
+const onCreateMeta = ({ node, getNode, actions: { createNodeField } }) => {
+  const folder = getNode(node.parent);
+  createNodeField({
+    node,
+    name: 'folder',
+    value: folder.relativeDirectory,
+  });
+};
+
+exports.onCreateNode = (...args) =>
+  [
+    onType('MarkdownRemark', onCreateMarkdown),
+    onType('Meta', onCreateMeta),
+  ].forEach(onCreate => onCreate(...args));
+
+const createMarkdownPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       allMarkdownRemark {
@@ -43,16 +58,22 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMarkdownRemark.edges
     .map(({ node }) => ({
       path: node.fields.slug,
-      component: path.resolve('./src/templates/index.tsx'),
+      component: path.resolve('./src/templates/content.tsx'),
       context: {
         slug: node.fields.slug,
         template: node.fields.template,
       },
     }))
     .forEach(page => actions.createPage(page));
+};
 
-  const indexes = await graphql(`
-    query MyQuery {
+const createContentDirectoryPages = async ({ graphql, actions }) => {
+  const {
+    data: {
+      allDirectory: { edges },
+    },
+  } = await graphql(`
+    query {
       allDirectory(filter: { relativeDirectory: { ne: ".." } }) {
         edges {
           node {
@@ -63,11 +84,49 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  indexes.data.allDirectory.edges
-    .map(({ node }) => ({
-      path: node.base,
-      component: path.resolve('./src/templates/directory.tsx'),
-      context: { directory: node.base, regex: `/^\/${node.base}.*$/` },
-    }))
-    .forEach(page => actions.createPage(page));
+  (
+    await Promise.all(
+      edges.map(async ({ node }) => {
+        const {
+          data: {
+            allMeta: {
+              nodes: [meta],
+            },
+          },
+        } = await graphql(
+          `
+            query getMeta($folder: String!) {
+              allMeta(filter: { fields: { folder: { eq: $folder } } }) {
+                nodes {
+                  id
+                  title
+                  description
+                  fields {
+                    folder
+                  }
+                }
+              }
+            }
+          `,
+          { folder: node.base },
+        );
+        return {
+          path: node.base,
+          component: path.resolve('./src/templates/directory.tsx'),
+          context: {
+            directory: node.base,
+            regex: `/^\/${node.base}.*$/`,
+            meta,
+          },
+        };
+      }),
+    )
+  ).map(page => actions.createPage(page));
 };
+
+exports.createPages = async (...args) =>
+  Promise.all(
+    [createMarkdownPages, createContentDirectoryPages].map(creator =>
+      creator(...args),
+    ),
+  );

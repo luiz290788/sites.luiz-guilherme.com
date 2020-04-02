@@ -1,4 +1,5 @@
 const _ = require(`lodash`);
+const path = require('path');
 
 /**
  * Configure your Gatsby site with this file.
@@ -49,11 +50,10 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-yaml',
       options: {
-        path: `${__dirname}/src/personal-info`,
         typeName: ({ node, object, isArray }) => {
           if (node.internal.type !== `File`) {
             return _.upperFirst(_.camelCase(`${node.internal.type}`));
-          } else if (isArray) {
+          } else if (isArray || node.name.toLowerCase() === 'meta') {
             return _.upperFirst(_.camelCase(`${node.name}`));
           } else {
             return _.upperFirst(_.camelCase(`${path.basename(node.dir)}`));
