@@ -23,29 +23,29 @@ const elementStyles = css({
   display: 'flex',
   justifyContent: 'flex-end',
   padding: '25px 0',
+  '@media (max-width: 420px)': {
+    width: 'calc(100% - 10px)',
+  },
 });
 
-const leftStyles = css(
-  {
-    alignSelf: 'flex-start',
-    [`.css-${contentStyles.name}`]: {
-      alignItems: 'flex-end',
-      textAlign: 'end',
-    },
+const rightStyles = css({
+  alignSelf: 'flex-end',
+  flexDirection: 'row-reverse',
+  [`.css-${contentStyles.name}`]: {
+    alignItems: 'flex-start',
+    textAlign: 'start',
   },
-  elementStyles,
-);
+});
 
-const rightStyles = css(
-  {
-    alignSelf: 'flex-end',
-    flexDirection: 'row-reverse',
-    [`.css-${contentStyles.name}`]: {
-      alignItems: 'flex-start',
-    },
+const leftStyles = css({
+  alignSelf: 'flex-start',
+  flexDirection: 'row',
+  [`.css-${contentStyles.name}`]: {
+    alignItems: 'flex-end',
+    textAlign: 'end',
   },
-  elementStyles,
-);
+  '@media (max-width: 420px)': rightStyles,
+});
 
 type Props = {
   position?: 'left' | 'right';
@@ -56,7 +56,9 @@ export const TimelineElement: React.FunctionComponent<Props> = ({
   position = 'left',
   children,
 }) => (
-  <section css={position === 'left' ? leftStyles : rightStyles}>
+  <section
+    css={css(position === 'left' ? leftStyles : rightStyles, elementStyles)}
+  >
     <div css={contentStyles}>{children}</div>
     <div css={bulletStyles} />
   </section>

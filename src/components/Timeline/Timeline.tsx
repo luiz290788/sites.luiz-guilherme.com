@@ -19,6 +19,9 @@ const timelineStyles = css({
   width: 6,
   background: 'black',
   borderRadius: 20,
+  '@media (max-width: 420px)': {
+    left: '17px',
+  },
 });
 
 type Props = {
