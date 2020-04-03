@@ -6649,6 +6649,18 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-react-helmet@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "gatsby-plugin-react-helmet@npm:3.2.1"
+  dependencies:
+    "@babel/runtime": ^7.8.7
+  peerDependencies:
+    gatsby: ^2.0.0
+    react-helmet: ^5.1.3
+  checksum: 2/f8fe553d26ed2bd6181b591b71f28f7f79a3dac437636192de6413d80071ffa2e9a4847ea786788bbf0ef7b436f138f4368462adb335ea7f2b256da239c981df
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-typescript@npm:^2.1.16":
   version: 2.3.0
   resolution: "gatsby-plugin-typescript@npm:2.3.0"
@@ -6732,6 +6744,7 @@ fsevents@~2.1.2:
     gatsby: ^2.17.11
     gatsby-plugin-emotion: ^4.1.14
     gatsby-plugin-jss: ^2.1.13
+    gatsby-plugin-react-helmet: ^3.2.1
     gatsby-plugin-typescript: ^2.1.16
     gatsby-plugin-web-font-loader: ^1.0.4
     gatsby-source-filesystem: ^2.1.36
@@ -6742,6 +6755,7 @@ fsevents@~2.1.2:
     prettier: ^1.19.1
     react: ^16.11.0
     react-dom: ^16.11.0
+    react-helmet: ^5.2.1
     typescript: ^3.7.2
   languageName: unknown
   linkType: soft
@@ -11984,7 +11998,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.5.4, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -12329,6 +12343,27 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"react-fast-compare@npm:^2.0.2":
+  version: 2.0.4
+  resolution: "react-fast-compare@npm:2.0.4"
+  checksum: 2/4e4bfc3597414a36ee35977259012fff30c4f13a0e5dcabf958e91991bef8e9a3faee9dd666cfbdb0c2a0f0ddaf242ac2912054caa956a793c4cdff274dc5aec
+  languageName: node
+  linkType: hard
+
+"react-helmet@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "react-helmet@npm:5.2.1"
+  dependencies:
+    object-assign: ^4.1.1
+    prop-types: ^15.5.4
+    react-fast-compare: ^2.0.2
+    react-side-effect: ^1.1.0
+  peerDependencies:
+    react: ">=15.0.0"
+  checksum: 2/5cccc521f00c3fd5a6d98801cd3efe13d0cefdcf580bd7f4f5b025fb1470abe6aa4b7653858be7a273b13a6bb266491ba0c0d6641c6c1461a752a5bf449bf7b4
+  languageName: node
+  linkType: hard
+
 "react-hot-loader@npm:^4.12.20":
   version: 4.12.20
   resolution: "react-hot-loader@npm:4.12.20"
@@ -12381,6 +12416,17 @@ fsevents@~2.1.2:
   version: 0.7.2
   resolution: "react-refresh@npm:0.7.2"
   checksum: 2/dc316baf35317aef118572c281f562f91d4fd72f5615649f70d5480cb75227972f7d30bb47b2ea4d2e66d693875d74bcd970ed8575dc16853bf20ed8c9e564d9
+  languageName: node
+  linkType: hard
+
+"react-side-effect@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "react-side-effect@npm:1.2.0"
+  dependencies:
+    shallowequal: ^1.0.1
+  peerDependencies:
+    react: ^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0
+  checksum: 2/5916b3eeaf599087529fbd3a0f879da4179d1ce39fbc368e669815d831531217c6ef638b54ff2ec569d15398f8eb1ec637b31c8ed1fca21960816b0ae529a034
   languageName: node
   linkType: hard
 
@@ -13331,7 +13377,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"shallowequal@npm:^1.1.0":
+"shallowequal@npm:^1.0.1, shallowequal@npm:^1.1.0":
   version: 1.1.0
   resolution: "shallowequal@npm:1.1.0"
   checksum: 2/15820dd544ce15521565c366940a46dcbe0f093c1336f6259c7b3e2490ca10135645ee262778f555d3ccc38283207f2f0a41e9a0f26888b5d5159f2904c4ac68
