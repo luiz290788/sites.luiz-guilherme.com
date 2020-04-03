@@ -1,29 +1,63 @@
 - company: Altassian
-  start: 2018
-  current: true
-  description: A very nice company to work
+  start: 2018-03
+  end: 2020-01
+  current: false
+  link: https://www.atlassian.com/
   positions:
     - title: Senior developer
-      start: 2018
-      current: true
-      description: Rockstar developer
+      current: false
+      description: 'Working as a full-stack engineer in a micro-service ecosystem on AWS. Using the following technologies: Java, Spring, Kotlin, NodeJs, React, Redux, Typescript, SQS, DynamoDB and more.'
 
 - company: Crossover
-  start: 2017
-  end: 2018
-  description: A very nice company to work
+  start: 2017-08
+  end: 2018-02
+  link: https://www.crossover.com/
   positions:
     - title: Senior Software Architect
-      start: 2017
-      end: 2018
-      description: A very nice company to work
+      description: Development of web SPA using ReactJs + Redux + Sagas.
 
 - company: iFood
-  start: 2016
-  end: 2017
-  description: An insteresting place to work
+  start: 2016-11
+  end: 2017-08
+  link: https://www.ifood.com.br/
   positions:
     - title: Developer
-      start: 2016
-      end: 2017
-      description: Making automated calls to clients.
+      description: Development of micro services in Java and Scala and front end development in ReactJs + Redux.
+
+- company: Movile
+  start: 2015-5
+  end: 2017-10
+  link: https://www.movile.com.br/
+  positions:
+    - title: Developer
+      description: Development of backend for mobile apps running on cloud using Java, Jersey, Postgres, NodeJs, MongoDB, ExpressJs and Docker. Also development of user interfaces using ReactJs and some apps using ReactNative.
+
+- company: CI&T
+  start: 2007-02
+  end: 2015-04
+  link: https://ciandt.com/
+  positions:
+    - title: Developer
+      start: 2007-02
+      end: 2009-12
+      description: Development of systems in Java using Struts, Hibernate, JBoss, Oracle, Javascript. Also development of websites using Drupal, jQuery, MySQL, HTML5 and CSS3.
+    - title: Technical Leader
+      start: 2010-01
+      end: 2012-08
+      description: Technical Leader of teams that does web development using Drupal, PHP, jQuery, HTML5, Javascript, MySQL and CSS3.
+    - title: Scrum Master
+      start: 2012-09
+      end: 2013-06
+      description: Scrum Master of two teams following Scrum.
+    - title: TitleDeveloper
+      start: 2013-07
+      end: 2013-11
+      description: Web development of sites using Drupal, PHP, jQuery, Javascript, MySQL, HTML5, CSS3 an Less.
+    - title: Cloud Specialist
+      start: 2013-12
+      end: 2014-06
+      description: Infrastructure management and cloud architecture definition for projects running completely on the AWS or GCP.
+    - title: Developer
+      start: 2014-06
+      end: 2015-04
+      description: Development of high scalable system on Google App Engine (GAE) using Java and Python. Also development of responsive user interfaces with CSS3, HTML5 and AngularJS.

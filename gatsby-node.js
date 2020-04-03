@@ -1,6 +1,53 @@
 const path = require('path');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+exports.createSchemaCustomization = ({ actions: { createTypes } }) =>
+  createTypes(`
+    """
+    A Professional experience entry
+    """
+    type ProfessionalExperience implements Node @dontInfer {
+      positions: [Position!]
+      company: String!
+      start: Date
+      end: Date
+      current: Boolean
+      link: String
+      description: String
+    }
+
+    """
+    Position in a company
+    """
+    type Position @dontInfer {
+      title: String!
+      start: Date
+      end: Date
+      current: Boolean
+      description: String
+    }
+
+    """
+    Directory meta data
+    """
+    type Meta implements Node @infer {
+      title: String!
+      description: String
+      menu: Boolean
+    }
+
+    """
+    An Education entry
+    """
+    type Education implements Node @infer {
+      school: String!
+      degree: String
+      start: Date
+      end: Date
+      link: String
+    }
+  `);
+
 const onType = (type, callback) => (...args) =>
   args[0].node.internal.type === type ? callback(...args) : undefined;
 
@@ -101,9 +148,7 @@ const createContentDirectoryPages = async ({ graphql, actions }) => {
                   id
                   title
                   description
-                  fields {
-                    folder
-                  }
+                  menu
                 }
               }
             }
@@ -117,8 +162,11 @@ const createContentDirectoryPages = async ({ graphql, actions }) => {
             directory: node.base,
             regex: `/^\/${node.base}.*$/`,
             meta: {
-              menu: meta && meta.title !== undefined,
               ...meta,
+              menu:
+                meta &&
+                (meta.menu === null || meta.menu) &&
+                meta.title !== undefined,
             },
           },
         };

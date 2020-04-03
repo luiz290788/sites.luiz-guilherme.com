@@ -11,12 +11,6 @@ const menuStyles = css({
   '& :first-child': {
     margin: '0 8px 0 0',
   },
-  a: {
-    '&:visited': {
-      color: 'inherit',
-    },
-    textDecoration: 'underline',
-  },
 });
 
 type Props = {

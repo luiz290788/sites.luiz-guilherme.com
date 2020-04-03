@@ -45,6 +45,7 @@ export const ProfessionalExperience = () => {
             end
             current
             description
+            link
             positions {
               title
               start
@@ -62,10 +63,14 @@ export const ProfessionalExperience = () => {
       <Title>Experience</Title>
       <Timeline>
         {professionalExperience.map(
-          ({ company, start, end, current, description, positions }) => (
+          ({ company, start, end, current, description, link, positions }) => (
             <TimelineElement>
               <div css={experienceStyles}>
-                <h1>{company}</h1>
+                <h1>
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    {company}
+                  </a>
+                </h1>
                 <StartEnd start={start} end={end} current={current} />
                 <p>{description}</p>
                 {positions.map(position => (

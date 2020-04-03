@@ -21,6 +21,12 @@ export const Layout = ({ children }) => (
           fontWeight: 800,
           fontSize: 24,
         },
+        a: {
+          '&:visited': {
+            color: 'inherit',
+          },
+          textDecoration: 'underline',
+        },
       })}
     />
     <SiteMenu />

@@ -9,7 +9,7 @@ export const ExternalLink: React.FunctionComponent<Props> = ({
   url,
   children,
 }) => (
-  <a href={url} target="_blank">
+  <a href={url} target="_blank" rel="noopener noreferrer">
     {children}
   </a>
 );

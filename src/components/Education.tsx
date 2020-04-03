@@ -29,6 +29,7 @@ export const Education = () => {
             degree
             start
             end
+            link
           }
         }
       }
@@ -38,10 +39,14 @@ export const Education = () => {
     <React.Fragment>
       <Title>Education</Title>
       <Timeline>
-        {education.map(({ school, start, end, degree }) => (
+        {education.map(({ school, start, end, degree, link }) => (
           <TimelineElement>
             <div css={schoolStyles}>
-              <h1>{school}</h1>
+              <h1>
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                  {school}
+                </a>
+              </h1>
               <p>{degree}</p>
               <StartEnd start={start} end={end} current={false} />
             </div>
