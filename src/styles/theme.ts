@@ -1,5 +1,10 @@
 export default {
-  primaryColor: '#272727',
-  secondaryColor: '#EAEAEA',
-  tertiaryColor: '#534B62',
+  colors: {
+    primary: '#383F51',
+    secondary: '#EAEAEA',
+    tertiary: '#bdbdbd',
+    color1: '#FBFCFF',
+  },
+  grid: 4,
+  fontFamily: "'Open Sans', sans-serif",
 };
