@@ -3,7 +3,7 @@ title: Radar Covid-19 Brazil
 date: 2019-11-14
 ---
 
-I've created a website called ["Radar Covid-19 Brasil"](https://covid19-brazil.netlify.com/) using
+I've created a website called ["Radar Covid-19 Brasil"](https://covid19.luiz-guilherme.com/) using
 React and Gatsby to help visualize the [Covid-19 Pandemic](https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic)
 data in Brazil.
 
