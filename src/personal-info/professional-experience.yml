@@ -25,7 +25,7 @@
       description: Development of micro services in Java and Scala and front end development in ReactJs + Redux.
 
 - company: Movile
-  start: 2015-5
+  start: 2015-05
   end: 2017-10
   link: https://www.movile.com.br/
   positions:
@@ -49,7 +49,7 @@
       start: 2012-09
       end: 2013-06
       description: Scrum Master of two teams following Scrum.
-    - title: TitleDeveloper
+    - title: Developer
       start: 2013-07
       end: 2013-11
       description: Web development of sites using Drupal, PHP, jQuery, Javascript, MySQL, HTML5, CSS3 an Less.
