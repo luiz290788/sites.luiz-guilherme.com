@@ -9,6 +9,5 @@
     "markdown",
     "latex",
     "plaintext"
-  ],
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  ]
 }
