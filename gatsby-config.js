@@ -1,5 +1,6 @@
 const _ = require(`lodash`);
 const path = require('path');
+const typescriptConfig = require('./tsconfig.json');
 
 /**
  * Configure your Gatsby site with this file.
@@ -27,9 +28,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-162139094-2",
+        trackingId: 'UA-162139094-2',
         head: true,
-        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        exclude: ['/preview/**', '/do-not-track/me/too/'],
         pageTransitionDelay: 0,
       },
     },
@@ -41,7 +42,7 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-typescript',
+    { resolve: 'gatsby-plugin-typescript', options: typescriptConfig },
     'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-source-filesystem',

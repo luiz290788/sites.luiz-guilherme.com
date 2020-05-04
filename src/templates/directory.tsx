@@ -2,9 +2,9 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { Layout } from '../components/Layout';
 import { css } from '@emotion/core';
-import { useStyles } from '../styles/useStyles';
+import { useStyles, StylesCreator } from '../styles/useStyles';
 
-const getStyles = (theme) => {
+const getStyles: StylesCreator = (theme) => {
   const articleStyles = css({
     margin: `0 0 ${theme.grid * 4}px`,
     h1: {
@@ -45,7 +45,10 @@ export const query = graphql`
   }
 `;
 
-const Meta = ({ title, description }) => {
+const Meta: React.FunctionComponent<{ title: string; description: string }> = ({
+  title,
+  description,
+}) => {
   const { metaStyles } = useStyles(getStyles);
   return (
     <div css={metaStyles}>
@@ -55,7 +58,11 @@ const Meta = ({ title, description }) => {
   );
 };
 
-const Article = ({ slug, title, excerpt }) => {
+const Article: React.FunctionComponent<{
+  slug: string;
+  title: string;
+  excerpt: string;
+}> = ({ slug, title, excerpt }) => {
   const { articleStyles } = useStyles(getStyles);
   return (
     <article css={articleStyles}>
@@ -67,7 +74,22 @@ const Article = ({ slug, title, excerpt }) => {
   );
 };
 
-export default ({ data, pathContext: { meta } }) => (
+type Props = {
+  data: {
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          fields: { slug: string };
+          frontmatter: { title: string };
+          excerpt: string;
+        };
+      }[];
+    };
+  };
+  pathContext: { meta: { title: string; description: string } };
+};
+
+export default ({ data, pathContext: { meta } }: Props) => (
   <Layout>
     {meta && <Meta {...meta} />}
     {data.allMarkdownRemark.edges.map(

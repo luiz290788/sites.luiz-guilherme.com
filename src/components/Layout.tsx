@@ -8,12 +8,20 @@ import { SiteMenu } from './SiteMenu';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
-export const Layout = ({ children }) => {
+export type Props = {
+  children: React.ReactNode,
+};
+
+type ResponseType = {
+  site: { siteMetadata: { title: string } },
+};
+
+export const Layout: React.FunctionComponent<Props> = ({ children }) => {
   const {
     site: {
       siteMetadata: { title },
     },
-  } = useStaticQuery(graphql`
+  }: ResponseType = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {

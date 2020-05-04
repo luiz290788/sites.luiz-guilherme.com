@@ -1,11 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import theme from '../styles/theme';
+import { theme } from '../styles/theme';
 
 const style = css({
-  border: `4px solid ${theme.tertiaryColor}`,
-  backgroundColor: theme.secondaryColor,
-
+  border: `4px solid ${theme.colors.primary}`,
+  backgroundColor: theme.colors.secondary,
   h2: {
     fontSize: 20,
   },

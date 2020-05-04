@@ -17,10 +17,22 @@ const schoolStyles = css({
   },
 });
 
-export const Education = () => {
+type ResponseType = {
+  allEducation: {
+    nodes: {
+      school: string;
+      start: Date;
+      end: Date;
+      degree: string;
+      link: string;
+    }[];
+  };
+};
+
+export const Education: React.FunctionComponent = () => {
   const {
     allEducation: { nodes: education },
-  } = useStaticQuery(
+  }: ResponseType = useStaticQuery(
     graphql`
       query {
         allEducation(sort: { order: DESC, fields: start }) {

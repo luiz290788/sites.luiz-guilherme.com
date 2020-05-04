@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { css } from '@emotion/core';
 
-import { Timeline, TimelineElement } from '../components/Timeline';
+import { Timeline, TimelineElement } from './Timeline';
 import { StartEnd } from './StartEnd';
 import { Title } from './Title';
 
@@ -24,7 +24,21 @@ const experienceStyles = css({
   },
 });
 
-const Position = ({ title, start, end, current, description }) => (
+type PositionProps = {
+  title: string,
+  start: Date,
+  end: Date,
+  current: boolean,
+  description: string,
+};
+
+const Position: React.FunctionComponent<PositionProps> = ({
+  title,
+  start,
+  end,
+  current,
+  description,
+}) => (
   <section css={positionStyles}>
     <h3>{title}</h3>
     <StartEnd start={start} end={end} current={current} />
@@ -32,10 +46,24 @@ const Position = ({ title, start, end, current, description }) => (
   </section>
 );
 
-export const ProfessionalExperience = () => {
+type ResponseType = {
+  allProfessionalExperience: {
+    nodes: {
+      company: string,
+      start: Date,
+      end: Date,
+      current: boolean,
+      description: string,
+      link: string,
+      positions: PositionProps[],
+    }[],
+  },
+};
+
+export const ProfessionalExperience: React.FunctionComponent = () => {
   const {
     allProfessionalExperience: { nodes: professionalExperience },
-  } = useStaticQuery(
+  } = useStaticQuery<ResponseType>(
     graphql`
       query {
         allProfessionalExperience(sort: { order: DESC, fields: start }) {
@@ -73,7 +101,7 @@ export const ProfessionalExperience = () => {
                 </h1>
                 <StartEnd start={start} end={end} current={current} />
                 <p>{description}</p>
-                {positions.map(position => (
+                {positions.map((position) => (
                   <Position {...position} />
                 ))}
               </div>

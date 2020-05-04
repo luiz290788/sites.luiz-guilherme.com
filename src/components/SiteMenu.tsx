@@ -4,13 +4,25 @@ import { Menu, ExternalLink } from './Menu';
 
 type Props = {};
 
+type ResponseType = {
+  site: {
+    siteMetadata: {
+      social: { title: string; url: string }[];
+      homeLink: boolean;
+    };
+  };
+  allSitePage: {
+    nodes: { path: string; context: { meta: { title: string } } }[];
+  };
+};
+
 export const SiteMenu: React.FunctionComponent<Props> = () => {
   const {
     site: {
       siteMetadata: { social, homeLink },
     },
     allSitePage: { nodes: pages },
-  } = useStaticQuery(
+  }: ResponseType = useStaticQuery(
     graphql`
       query {
         site {

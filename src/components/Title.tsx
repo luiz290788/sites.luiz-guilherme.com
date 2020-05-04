@@ -6,7 +6,7 @@ const titleStyles = css({
   margin: '30px 0 10px',
 });
 
-type Props = {
+export type Props = {
   children: string;
 };
 
