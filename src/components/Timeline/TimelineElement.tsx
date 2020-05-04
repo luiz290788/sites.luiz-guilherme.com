@@ -1,9 +1,8 @@
-import React from 'react';
 import { css } from '@emotion/core';
-import { useTheme } from 'emotion-theming';
-import { useStyles } from '../../styles/useStyles';
+import React from 'react';
+import { useStyles, StylesCreator } from '../../styles/useStyles';
 
-const getStyles = (theme) => {
+const getStyles: StylesCreator = (theme) => {
   const contentStyles = css({
     margin: `0 ${theme.grid * 2}px`,
     display: 'flex',
@@ -15,7 +14,6 @@ const getStyles = (theme) => {
   const bulletStyles = css({
     backgroundColor: theme.colors.tertiary,
     boxShadow: `0px 0px 2px 8px ${theme.colors.color1}`,
-
     width: 20,
     height: 20,
     flexShrink: 0,
@@ -24,63 +22,31 @@ const getStyles = (theme) => {
   });
 
   const elementStyles = css({
-    width: 'calc(50% + 10px)',
     display: 'flex',
     justifyContent: 'flex-end',
-    padding: `${theme.grid * 6}px 0`,
-    '@media (max-width: 420px)': {
-      width: 'calc(100% - 10px)',
-    },
-  });
-
-  const rightStyles = css({
+    padding: `${theme.grid * 4}px 0`,
+    width: 'calc(100% - 10px)',
     alignSelf: 'flex-end',
     flexDirection: 'row-reverse',
-    [`.css-${contentStyles.name}`]: {
-      alignItems: 'flex-start',
-      textAlign: 'start',
-    },
-  });
-
-  const leftStyles = css({
-    alignSelf: 'flex-start',
-    flexDirection: 'row',
-    [`.css-${contentStyles.name}`]: {
-      alignItems: 'flex-end',
-      textAlign: 'end',
-    },
-    '@media (max-width: 420px)': rightStyles,
   });
 
   return {
     contentStyles,
     bulletStyles,
     elementStyles,
-    rightStyles,
-    leftStyles,
   };
 };
 
 type Props = {
-  position?: 'left' | 'right';
   children: React.ReactNode;
 };
 
 export const TimelineElement: React.FunctionComponent<Props> = ({
-  position = 'left',
   children,
 }) => {
-  const {
-    contentStyles,
-    bulletStyles,
-    elementStyles,
-    rightStyles,
-    leftStyles,
-  } = useStyles(getStyles);
+  const { contentStyles, bulletStyles, elementStyles } = useStyles(getStyles);
   return (
-    <section
-      css={css(position === 'left' ? leftStyles : rightStyles, elementStyles)}
-    >
+    <section css={css(elementStyles)}>
       <div css={contentStyles}>{children}</div>
       <div css={bulletStyles} />
     </section>

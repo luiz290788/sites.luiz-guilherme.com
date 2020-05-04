@@ -2,7 +2,7 @@ import React from 'react';
 import { Global, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
-import theme from '../styles/theme';
+import { theme } from '../styles/theme';
 import { Header } from './Header';
 import { SiteMenu } from './SiteMenu';
 import { useStaticQuery, graphql } from 'gatsby';
