@@ -1243,6 +1243,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.9.2":
+  version: 7.9.6
+  resolution: "@babel/runtime@npm:7.9.6"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 2/ff94d6861daea1c6e4639f2e6d22992539fab45ce6ef468de37e0dd0df109aee94276f72fc962b48946dde0b8554a71343fc398ea5a565cab59c596829ccc2ad
+  languageName: node
+  linkType: hard
+
 "@babel/standalone@npm:^7.9.5":
   version: 7.9.5
   resolution: "@babel/standalone@npm:7.9.5"
@@ -7127,6 +7136,20 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-google-analytics@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "gatsby-plugin-google-analytics@npm:2.3.0"
+  dependencies:
+    "@babel/runtime": ^7.9.2
+    minimatch: 3.0.4
+  peerDependencies:
+    gatsby: ^2.0.0
+    react: ^16.4.2
+    react-dom: ^16.4.2
+  checksum: 2/946efc6ff8683696f089a1c627bd5bc19618cfeea41be3285f77e236a005201492003677a4e97731e853dc3c27d6feaf1894425e862bbd884a84ed503c8b6329
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-jss@npm:^2.2.3":
   version: 2.2.3
   resolution: "gatsby-plugin-jss@npm:2.2.3"
@@ -7313,6 +7336,7 @@ fsevents@~2.1.2:
     emotion-theming: ^10.0.27
     gatsby: ^2.20.29
     gatsby-plugin-emotion: ^4.2.2
+    gatsby-plugin-google-analytics: ^2.3.0
     gatsby-plugin-jss: ^2.2.3
     gatsby-plugin-react-helmet: ^3.2.4
     gatsby-plugin-typescript: ^2.3.3
