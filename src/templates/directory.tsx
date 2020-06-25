@@ -1,10 +1,11 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import { Layout } from '../components/Layout';
 import { css } from '@emotion/core';
-import { useStyles, StylesCreator } from '../styles/useStyles';
+import { graphql, Link } from 'gatsby';
+import React from 'react';
+import { Layout } from '../components/Layout';
+import { Theme } from '../styles/theme';
+import { useStyles } from '../styles/useStyles';
 
-const getStyles: StylesCreator = (theme) => {
+const getStyles = (theme: Theme) => {
   const articleStyles = css({
     margin: `0 0 ${theme.grid * 4}px`,
     h1: {

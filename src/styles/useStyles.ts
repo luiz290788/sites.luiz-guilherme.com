@@ -1,14 +1,12 @@
+import { SerializedStyles } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import type { Theme } from './theme';
-import { SerializedStyles } from '@emotion/core';
 
-export type StylesCreator = (
-  theme: Theme,
-) => {
-  [Key in string]: SerializedStyles;
-};
+export type Styles = Record<string, SerializedStyles>;
 
-export const useStyles = (creator: StylesCreator) => {
+export type StylesCreator<C extends Styles> = (theme: Theme) => C;
+
+export const useStyles = <C extends Styles>(creator: StylesCreator<C>): C => {
   const theme = useTheme<Theme>();
 
   return creator(theme);

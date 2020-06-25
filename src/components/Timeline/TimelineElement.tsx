@@ -1,8 +1,9 @@
 import { css } from '@emotion/core';
 import React from 'react';
-import { useStyles, StylesCreator } from '../../styles/useStyles';
+import { useStyles } from '../../styles/useStyles';
+import { Theme } from '../../styles/theme';
 
-const getStyles: StylesCreator = (theme) => {
+const getStyles = (theme: Theme) => {
   const contentStyles = css({
     margin: `0 ${theme.grid * 2}px`,
     display: 'flex',
@@ -24,7 +25,7 @@ const getStyles: StylesCreator = (theme) => {
   const elementStyles = css({
     display: 'flex',
     justifyContent: 'flex-end',
-    padding: `${theme.grid * 4}px 0`,
+    padding: `0 0 ${theme.grid * 4}px`,
     width: 'calc(100% - 10px)',
     alignSelf: 'flex-end',
     flexDirection: 'row-reverse',

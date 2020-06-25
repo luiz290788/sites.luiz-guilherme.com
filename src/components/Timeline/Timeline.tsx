@@ -1,8 +1,8 @@
-import React from 'react';
 import { css } from '@emotion/core';
-
+import React from 'react';
+import { Theme } from '../../styles/theme';
+import { useStyles } from '../../styles/useStyles';
 import { TimelineElement } from './TimelineElement';
-import { useStyles, StylesCreator } from '../../styles/useStyles';
 
 const containerStyles = css({
   width: '100%',
@@ -12,7 +12,7 @@ const containerStyles = css({
   margin: '5px 0',
 });
 
-const getTimelineStyles: StylesCreator = (theme) => ({
+const getTimelineStyles = (theme: Theme) => ({
   timelineStyles: css({
     position: 'absolute',
     top: 0,

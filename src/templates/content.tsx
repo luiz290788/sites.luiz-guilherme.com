@@ -1,10 +1,11 @@
-import React from 'react';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
+import React from 'react';
 import { Layout } from '../components/Layout';
-import { useStyles, StylesCreator } from '../styles/useStyles';
+import { Theme } from '../styles/theme';
+import { useStyles } from '../styles/useStyles';
 
-const getStyles: StylesCreator = (theme) => {
+const getStyles = (theme: Theme) => {
   const styles = css({
     h1: { margin: `0 0 ${theme.grid * 8}px` },
     p: { margin: `0 0 ${theme.grid * 2}px` },
