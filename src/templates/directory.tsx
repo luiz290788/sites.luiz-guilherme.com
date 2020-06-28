@@ -1,6 +1,8 @@
 import { css } from '@emotion/core';
 import { graphql, Link } from 'gatsby';
-import React from 'react';
+import moment from 'moment';
+import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import { Layout } from '../components/Layout';
 import { Theme } from '../styles/theme';
 import { useStyles } from '../styles/useStyles';
@@ -12,6 +14,9 @@ const getStyles = (theme: Theme) => {
       fontWeight: 600,
       fontSize: 20,
       margin: `0 0 ${theme.grid * 2}px`,
+    },
+    span: {
+      fontSize: 14,
     },
   });
 
@@ -28,6 +33,11 @@ const getStyles = (theme: Theme) => {
 
 export const query = graphql`
   query($regex: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(filter: { fields: { slug: { regex: $regex } } }) {
       edges {
         node {
@@ -38,24 +48,33 @@ export const query = graphql`
           frontmatter {
             title
             date
+            description
           }
-          excerpt
         }
       }
     }
   }
 `;
 
-const Meta: React.FunctionComponent<{ title: string; description: string }> = ({
-  title,
-  description,
-}) => {
+const Meta: React.FunctionComponent<{
+  title: string;
+  description: string;
+  siteTitle: string;
+}> = ({ title, description, siteTitle }) => {
   const { metaStyles } = useStyles(getStyles);
   return (
-    <div css={metaStyles}>
-      {title && <h1>{title}</h1>}
-      {description && <p>{description}</p>}
-    </div>
+    <Fragment>
+      <Helmet>
+        <title>
+          {title} - {siteTitle}
+        </title>
+        <meta name="description" content={description} />
+      </Helmet>
+      <div css={metaStyles}>
+        {title ?? <h1>{title}</h1>}
+        {description ?? <p>{description}</p>}
+      </div>
+    </Fragment>
   );
 };
 
@@ -63,13 +82,15 @@ const Article: React.FunctionComponent<{
   slug: string;
   title: string;
   excerpt: string;
-}> = ({ slug, title, excerpt }) => {
+  date: Date;
+}> = ({ slug, title, excerpt, date }) => {
   const { articleStyles } = useStyles(getStyles);
   return (
     <article css={articleStyles}>
       <h1>
         <Link to={slug}>{title}</Link>
       </h1>
+      <span>{moment(date).format('DD, MMM YYYY')}</span>
       <p>{excerpt}</p>
     </article>
   );
@@ -77,12 +98,12 @@ const Article: React.FunctionComponent<{
 
 type Props = {
   data: {
+    site: { siteMetadata: { title: string } };
     allMarkdownRemark: {
       edges: {
         node: {
           fields: { slug: string };
-          frontmatter: { title: string };
-          excerpt: string;
+          frontmatter: { title: string; date: string; description: string };
         };
       }[];
     };
@@ -90,18 +111,25 @@ type Props = {
   pathContext: { meta: { title: string; description: string } };
 };
 
-export default ({ data, pathContext: { meta } }: Props) => (
+export default ({
+  data: { allMarkdownRemark, site },
+  pathContext: { meta },
+}: Props) => (
   <Layout>
-    {meta && <Meta {...meta} />}
-    {data.allMarkdownRemark.edges.map(
+    {meta && <Meta {...meta} siteTitle={site.siteMetadata.title} />}
+    {allMarkdownRemark.edges.map(
       ({
         node: {
           fields: { slug },
-          frontmatter: { title },
-          excerpt,
+          frontmatter: { title, date, description },
         },
       }) => (
-        <Article slug={slug} title={title} excerpt={excerpt} />
+        <Article
+          slug={slug}
+          title={title}
+          excerpt={description}
+          date={new Date(date)}
+        />
       ),
     )}
   </Layout>

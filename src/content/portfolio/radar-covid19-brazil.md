@@ -1,6 +1,8 @@
 ---
 title: Radar Covid-19 Brazil
 date: 2020-03-28
+keywords: Covid-19, coronavirus, Brazil, Gatsby, ReactJS, GraphQl
+description: Project for exposing the numbers about Covid-19 in Brazil.
 ---
 
 I've created a website called ["Radar Covid-19 Brasil"](https://covid19.luiz-guilherme.com/) using
