@@ -1,3 +1,12 @@
+- company: Briza
+  start: 2020-06
+  current: true
+  link: https://briza.com/
+  positions:
+    - title: Senior developer
+      current: true
+      description: 'Working as a full-stack engineer with NodeJS, Express, VueJs, Typescript, Postgresql and more.'
+
 - company: Atlassian
   start: 2018-03
   end: 2020-01
