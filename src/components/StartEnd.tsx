@@ -14,7 +14,7 @@ export const StartEnd: React.FunctionComponent<Props> = ({
 }) => {
   if (start) {
     const startMoment = moment(start);
-    const endMoment = moment(end ? end : new Date());
+    const endMoment = moment(end ?? new Date());
     const format = 'MMM, YYYY';
     const duration = moment.duration(startMoment.diff(endMoment));
     const text = `${startMoment.format(format)} - ${
