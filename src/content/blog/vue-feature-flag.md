@@ -1,15 +1,23 @@
 ---
-title: v-if is not a directive
-date: '2020-06-27'
+title: Feature Flags in VueJs
+date: 2020-06-28
+keywords: vuejs, vue, directives, v-if, feature flags
+description: My journey through implementing of feature flags in my first VueJs project.
 ---
 
 For my first task in my VueJS project, I had to implement a feature flag solution for the system.
 Basically what we needed is a `v-if` checking if the feature flag is enabled or not.
 
-## My solution
+[[info]]
+| Feature Flag is a technique used to change software behavior without changing the code. This is
+| a powerful technique that is useful is various use cases like gradual rollouts, A/B testing,
+| experimentation and quick rollbacks. Feature Flag can also add a lot of complexity to the software
+| and can become one of the biggest sources of technical debt.
 
-As Vue allows us to create custom directives for the components, I decided to try to toss some sugar
-on it and try to create a directive to make it easier to use the feature flags. Directive system in Vue
+## My initial solution
+
+As VueJs allows us to create custom directives for the components, I decided to try to toss some sugar
+on it and try to create a directive to make it easier to use the feature flags. Directive system in VueJs
 is very flexible and would allow me to do some things like this:
 
 ```html
@@ -22,11 +30,11 @@ tweaking a little bit the condition and boom, I have my feature flag directive w
 started digging into the VueJs code I found out that `v-if` is not a VueJS directive but a template
 compiler directive (yeah yeah, I cheated a little bit on the title) but what does it mean?
 
-## The compiler
+## Dissecting v-if
 
 VueJs has a compiler that compiles your template into a Javascript function. Depending on the situation
-this compilation happens in transpile time (like when you a loader in webpack) or during runtime ( when
-you use template property while registering a component).
+this compilation happens in transpile time (like when you use a loader in webpack) or during runtime
+(when you use a template property while registering a component).
 
 So if you have this template:
 
@@ -56,10 +64,10 @@ function render() {
 ```
 
 [[info]]
-| You might be wondering what `with(this)` means. Turns out `with` is a unrecommended
+| You might be wondering what `with(this)` means. Turns out `with` is a not recommended
 | [statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with)
 | for extending the scope. This is basically adding everything inside of `this` to be
-| available on the scope. Vue uses it to avoid having to add `this.` before all references
+| available on the scope. VueJs uses it to avoid having to add `this.` before all references
 | to `_c` and `_v` functions. But back to the main topic
 
 And if we throw a `v-if` on the `ul`
@@ -91,8 +99,8 @@ function render() {
 This prevents everything inside the `ul` and including it to be instantiated if the
 condition is false.
 
-If I implement the custom directive that I've described above, the compiler would
-generate the following function:
+If I implement the `v-ff` as described above, the compiler would generate the following
+function:
 
 ```js
 function render() {
@@ -119,9 +127,11 @@ function render() {
 
 This means that everything inside of the `ul` will be instantiated before the
 component with my directive is instantiated and the code of my directive executes.
-This might not be too much but in a situation where the components are loaded async
-and loading two different versions of the same page might affect the time to interact
-of your page.
+
+It is not a big problem in my example but it may cause some undesired side effects like
+loading not needed components and creating a long tree of components that won't be rendered
+because the feature flag is disabled. These side effects could impact the time to interact
+of your application.
 
 [[info]]
 | This is the basis of the [difference](https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show)
@@ -136,7 +146,10 @@ specially by the compiler.
 
 ## Final solution
 
-So my solution was just simply write a mixin that exposes a function that checks the feature
+Based on my research, I don't recommend using custom directives for implementing feature flags
+in your VueJs app.
+
+In my case I simply wrote a mixin that exposes a function that checks the feature
 flag value. This function can be used inside `v-if` to achieve the result I desired from the
 beginning without the need to create a new directive.
 
