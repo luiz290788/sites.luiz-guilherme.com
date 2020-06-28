@@ -21,6 +21,10 @@ module.exports = {
         title: 'Github',
         url: 'https://github.com/luiz290788/',
       },
+      {
+        title: 'Twitter',
+        url: 'https://twitter.com/l2zg7e/',
+      },
     ],
     homeLink: true,
   },
