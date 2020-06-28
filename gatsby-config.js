@@ -76,7 +76,25 @@ module.exports = {
         },
       },
     },
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-custom-blocks',
+            options: {
+              blocks: {
+                info: {
+                  classes: "info"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
     'gatsby-plugin-react-helmet',
   ],
 };

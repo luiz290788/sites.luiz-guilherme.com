@@ -9,11 +9,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 export type Props = {
-  children: React.ReactNode,
+  children: React.ReactNode;
 };
 
 type ResponseType = {
-  site: { siteMetadata: { title: string } },
+  site: { siteMetadata: { title: string } };
 };
 
 export const Layout: React.FunctionComponent<Props> = ({ children }) => {
@@ -50,6 +50,10 @@ export const Layout: React.FunctionComponent<Props> = ({ children }) => {
             h1: {
               fontWeight: 800,
               fontSize: 24,
+            },
+            h2: {
+              fontWeight: 400,
+              fontSize: 20,
             },
             a: {
               '&:visited': {

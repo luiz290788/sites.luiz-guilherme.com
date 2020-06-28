@@ -5197,6 +5197,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clipboard@npm:^2.0.0":
+  version: 2.0.6
+  resolution: "clipboard@npm:2.0.6"
+  dependencies:
+    good-listener: ^1.2.2
+    select: ^1.1.2
+    tiny-emitter: ^2.0.0
+  checksum: 25e2e6b595f764ebb541dfda5c77051200567b5dd2de42ac6ab9681febe1256a977be450ab1d6f0d41554799106cc92e79e167797c8e8b8e88edcb0aec5b5dcb
+  languageName: node
+  linkType: hard
+
 "clipboardy@npm:^2.3.0":
   version: 2.3.0
   resolution: "clipboardy@npm:2.3.0"
@@ -6336,6 +6347,13 @@ __metadata:
   version: 1.0.0
   resolution: "delayed-stream@npm:1.0.0"
   checksum: d9dfb0a7c79fd308fada9db2cf29d1ff22047ceb50dd78f7e3c173567909b438f418259cb76a6d9c9f513e88ef41d3a14154f618741ec8368c3efeff616d0c9f
+  languageName: node
+  linkType: hard
+
+"delegate@npm:^3.1.2":
+  version: 3.2.0
+  resolution: "delegate@npm:3.2.0"
+  checksum: ccbbf29eb436719e4ffef06a1df2635a150f229f8ae549f4b6e118e940b17917e063c939541c6e23f38675d30acf424ecca9a8d1cca2a874d63fa0c257b0811f
   languageName: node
   linkType: hard
 
@@ -8455,6 +8473,47 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gatsby-remark-autolink-headers@npm:^2.3.7":
+  version: 2.3.7
+  resolution: "gatsby-remark-autolink-headers@npm:2.3.7"
+  dependencies:
+    "@babel/runtime": ^7.10.3
+    github-slugger: ^1.3.0
+    lodash: ^4.17.15
+    mdast-util-to-string: ^1.1.0
+    unist-util-visit: ^1.4.1
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: 14690fab79ddeac0007c275946dac8cedefa059e333fc69dfd1b0451e75ea053a74ce7b94918bd289cd32737f6801ca7dba4e42ad84ac22762221e431a8f0b4c
+  languageName: node
+  linkType: hard
+
+"gatsby-remark-custom-blocks@npm:^2.3.6":
+  version: 2.3.6
+  resolution: "gatsby-remark-custom-blocks@npm:2.3.6"
+  dependencies:
+    "@babel/runtime": ^7.10.3
+    remark-custom-blocks: ^2.5.0
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: 8a3276c77178c6cfdc9aa87f3f89761c9b6ef7af49aedaaf72fa4913274255a730f94a45364a235b6ee72476ebf775cabc5df192336fb967ae573ca8d99e561c
+  languageName: node
+  linkType: hard
+
+"gatsby-remark-prismjs@npm:^3.5.6":
+  version: 3.5.6
+  resolution: "gatsby-remark-prismjs@npm:3.5.6"
+  dependencies:
+    "@babel/runtime": ^7.10.3
+    parse-numeric-range: ^0.0.2
+    unist-util-visit: ^1.4.1
+  peerDependencies:
+    gatsby: ^2.0.0
+    prismjs: ^1.15.0
+  checksum: dff1c8c3a4d79e224bfa1595bf7a364950cfdba3a6329a1778dc7338e6107441ead050994c4d309d1faf7e008ff23c82fb2a7d4ac46bd681e4f107ed375f00d5
+  languageName: node
+  linkType: hard
+
 "gatsby-source-filesystem@npm:^2.3.14":
   version: 2.3.14
   resolution: "gatsby-source-filesystem@npm:2.3.14"
@@ -8501,12 +8560,16 @@ fsevents@~2.1.2:
     gatsby-plugin-react-helmet: ^3.3.6
     gatsby-plugin-typescript: ^2.4.8
     gatsby-plugin-web-font-loader: ^1.0.4
+    gatsby-remark-autolink-headers: ^2.3.7
+    gatsby-remark-custom-blocks: ^2.3.6
+    gatsby-remark-prismjs: ^3.5.6
     gatsby-source-filesystem: ^2.3.14
     gatsby-transformer-remark: ^2.8.19
     gatsby-transformer-yaml: ^2.4.6
     lodash: ^4.17.15
     moment: 2.27.0
     prettier: ^2.0.5
+    prismjs: ^1.20.0
     react: ^16.13.1
     react-dom: ^16.13.1
     react-helmet: ^6.1.0
@@ -8834,7 +8897,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"github-slugger@npm:^1.2.1":
+"github-slugger@npm:^1.2.1, github-slugger@npm:^1.3.0":
   version: 1.3.0
   resolution: "github-slugger@npm:1.3.0"
   dependencies:
@@ -8982,6 +9045,15 @@ fsevents@~2.1.2:
     pify: ^2.0.0
     pinkie-promise: ^2.0.0
   checksum: 7acac933247f203624c502e6db54995d355ae2ce618be40a6a125c73bac9fa1bb775cf2b0959d92807605534f7b29cf711bc354febb8a6dc2ecbaa1cbf59efa5
+  languageName: node
+  linkType: hard
+
+"good-listener@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "good-listener@npm:1.2.2"
+  dependencies:
+    delegate: ^3.1.2
+  checksum: 640a1627e528ceb3337595a8020f44d09455f284c18c765eaf9ce5dcdf1799810e7b11ca2b61582a5a4db20aad0b7e6b820235864822d84df541d74383bcd01c
   languageName: node
   linkType: hard
 
@@ -13436,6 +13508,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"parse-numeric-range@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "parse-numeric-range@npm:0.0.2"
+  checksum: a058c6ef46f916b1b76dadf64ee7c7b271228ec607e276d1a927f13c5ee4356f6b3f8771910ac6741e3fc612d429bda9411c7d30c9ddf6c0416915a04a66b6ca
+  languageName: node
+  linkType: hard
+
 "parse-passwd@npm:^1.0.0":
   version: 1.0.0
   resolution: "parse-passwd@npm:1.0.0"
@@ -14284,6 +14363,18 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"prismjs@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "prismjs@npm:1.20.0"
+  dependencies:
+    clipboard: ^2.0.0
+  dependenciesMeta:
+    clipboard:
+      optional: true
+  checksum: b4cb8bdd48a18421e8eabf936ad38a33254250a7d8576d05a2286fbae8d07ef2b2a92a3c22f5e61fa9ba72eeff3d246326274138470f4c98d7a06adcfee4dcae
+  languageName: node
+  linkType: hard
+
 "private@npm:^0.1.8":
   version: 0.1.8
   resolution: "private@npm:0.1.8"
@@ -15099,6 +15190,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"remark-custom-blocks@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "remark-custom-blocks@npm:2.5.0"
+  dependencies:
+    space-separated-tokens: ^1.1.5
+  checksum: 75a244f3ff06337334b395ab85c9c73b481039596fb63506926e82798cd916adb61a308640d1ad20a634b7027f296813b2e4d3af601032fc4e665f1401b56af5
+  languageName: node
+  linkType: hard
+
 "remark-footnotes@npm:1.0.0":
   version: 1.0.0
   resolution: "remark-footnotes@npm:1.0.0"
@@ -15726,6 +15826,13 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
+"select@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "select@npm:1.1.2"
+  checksum: 66be63b7cf0973af48cebcca47909d0ba703bb7f01373f9ebf19880dc8fe9c97f41e2ebdefee144f60bbf416cafbf77dfb98cd1776e62d7afc336b843f1009b1
+  languageName: node
+  linkType: hard
+
 "selfsigned@npm:^1.10.7":
   version: 1.10.7
   resolution: "selfsigned@npm:1.10.7"
@@ -16276,7 +16383,7 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
-"space-separated-tokens@npm:^1.0.0":
+"space-separated-tokens@npm:^1.0.0, space-separated-tokens@npm:^1.1.5":
   version: 1.1.5
   resolution: "space-separated-tokens@npm:1.1.5"
   checksum: 2b143776c39176e7faa020d9c96d41ecc33862139b8bc92d5551561e9ae7adbe537b3a51d381da563a953dbda82ea117cefaa7dec9075fb869596cb02d582abe
@@ -17122,6 +17229,13 @@ resolve@^1.17.0:
   version: 0.3.0
   resolution: "timsort@npm:0.3.0"
   checksum: d8300c3ecf1a3751413de82b04ad283b461ab6fb1041820c825d13b4ae74526e2101ab5fb84c57a0c6e1f4d7f67173b5d8754ed8bb7447c6a9ce1db8562eb82c
+  languageName: node
+  linkType: hard
+
+"tiny-emitter@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "tiny-emitter@npm:2.1.0"
+  checksum: 0055509c72e5fe35d6ab66fa6339342e0f29129e77ed2086e475fdf80be43a8651f2517be76513b46a042c8356396f4da5a35e2e23457252176808d5a892036a
   languageName: node
   linkType: hard
 
