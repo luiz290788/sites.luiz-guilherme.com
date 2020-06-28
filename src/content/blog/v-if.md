@@ -42,21 +42,23 @@ So if you have this template:
 A function that looks like this will be generated to render the template:
 
 ```js
-with (this) {
-  return _c('div', [
-    _c('ul', [
-      _c('li', [_v('first item')]),
-      _v(' '),
-      _c('li', [_v('second item')]),
-    ]),
-  ]);
+function render() {
+  with (this) {
+    return _c('div', [
+      _c('ul', [
+        _c('li', [_v('first item')]),
+        _v(' '),
+        _c('li', [_v('second item')]),
+      ]),
+    ]);
+  }
 }
 ```
 
 [[info]]
 | You might be wondering what `with(this)` means. Turns out `with` is a unrecommended
 | [statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with)
-| for extending the scope. This is basically adding everything inside of this to be
+| for extending the scope. This is basically adding everything inside of `this` to be
 | available on the scope. Vue uses it to avoid having to add `this.` before all references
 | to `_c` and `_v` functions. But back to the main topic
 
@@ -71,16 +73,18 @@ And if we throw a `v-if` on the `ul`
 It gets compiled to a ternary expression
 
 ```js
-with (this) {
-  return _c('div', [
-    isFFEnabled('my-feature-flag')
-      ? _c('ul', [
-          _c('li', [_v('first item')]),
-          _v(' '),
-          _c('li', [_v('second item')]),
-        ])
-      : _e(),
-  ]);
+function render() {
+  with (this) {
+    return _c('div', [
+      isFFEnabled('my-feature-flag')
+        ? _c('ul', [
+            _c('li', [_v('first item')]),
+            _v(' '),
+            _c('li', [_v('second item')]),
+          ])
+        : _e(),
+    ]);
+  }
 }
 ```
 
@@ -91,23 +95,25 @@ If I implement the custom directive that I've described above, the compiler woul
 generate the following function:
 
 ```js
-with (this) {
-  return _c('div', [
-    _c(
-      'ul',
-      {
-        directives: [
-          {
-            name: 'ff',
-            rawName: 'v-ff:my-feature-flag.on',
-            arg: 'my-feature-flag',
-            modifiers: { on: true },
-          },
-        ],
-      },
-      [_c('li', [_v('first item')]), _v(' '), _c('li', [_v('second item')])],
-    ),
-  ]);
+function render() {
+  with (this) {
+    return _c('div', [
+      _c(
+        'ul',
+        {
+          directives: [
+            {
+              name: 'ff',
+              rawName: 'v-ff:my-feature-flag.on',
+              arg: 'my-feature-flag',
+              modifiers: { on: true },
+            },
+          ],
+        },
+        [_c('li', [_v('first item')]), _v(' '), _c('li', [_v('second item')])],
+      ),
+    ]);
+  }
 }
 ```
 
@@ -131,4 +137,13 @@ specially by the compiler.
 ## Final solution
 
 So my solution was just simply write a mixin that exposes a function that checks the feature
-flag value and we can simply add that our components and use it with the good old `v-if`.
+flag value. This function can be used inside `v-if` to achieve the result I desired from the
+beginning without the need to create a new directive.
+
+```html
+<div v-if="isFFEnabled('my-feature-flag')">...</div>
+<div v-else>...</div>
+```
+
+It is not so sugary as I wanted but it is more resource efficient and does not require any
+complex obscure code that no one will understand in some months.
