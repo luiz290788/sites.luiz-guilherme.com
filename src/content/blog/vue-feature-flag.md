@@ -28,7 +28,7 @@ is very flexible and would allow me to do some things like this:
 My initial thinking was "let me look at the code for the v-if directive, I'll copy and paste it just
 tweaking a little bit the condition and boom, I have my feature flag directive working". But when I
 started digging into the VueJs code I found out that `v-if` is not a VueJS directive but a template
-compiler directive (yeah yeah, I cheated a little bit on the title) but what does it mean?
+compiler directive but what does it mean?
 
 ## Dissecting v-if
 
