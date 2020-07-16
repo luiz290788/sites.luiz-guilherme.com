@@ -38,7 +38,10 @@ export const query = graphql`
         title
       }
     }
-    allMarkdownRemark(filter: { fields: { slug: { regex: $regex } } }) {
+    allMarkdownRemark(
+      filter: { fields: { slug: { regex: $regex } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           id
