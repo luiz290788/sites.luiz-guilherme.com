@@ -13,7 +13,7 @@ The dependencies of our classes are inject by Inversify in the constructor and w
 writing testings we can inject mocks to isolate the class being tested.
 
 Jest is great for mocking using `jest.fn()`, `jest.mock()` and `jest.spy()`. With `fn`
-you can create a mock function that you can use to verify calls to that function checking
+you can create a mock function which you can use to verify calls to that function checking
 arguments and number of calls also simulating the behaviour controlling the return or
 giving it an implementation. With `mock` you can mock an entire Javascript module
 changing its content completely. This is very useful when you are using third party
