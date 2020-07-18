@@ -2,3 +2,7 @@
 
 /dist
 /coverage
+
+/apps/personal/node_modules
+/apps/personal/public
+/apps/personal/.cache
