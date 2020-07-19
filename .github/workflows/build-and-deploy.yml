@@ -1,0 +1,32 @@
+name: Build and Deploy website
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    name: Build all websites and deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - name: Install dependencies
+        run: yarn install
+      - name: Test affected websites
+        run: yarn nx affected:test --base=${{ github.event.before }}
+      - name: e2e test affected websites
+        run: yarn nx affected:e2e --base=${{ github.event.before }}
+      - name: Build affected websites
+        run: yarn nx affected:build --base=${{ github.event.before }}
+      - name: Deploy affected websites
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: yarn nx affected --target=deploy --base=${{ github.event.before }}
