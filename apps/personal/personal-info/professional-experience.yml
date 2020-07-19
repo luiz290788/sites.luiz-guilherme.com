@@ -5,7 +5,7 @@
   positions:
     - title: Senior developer
       current: true
-      description: 'Working as a full-stack engineer with NodeJS, Express, VueJs, Typescript, Postgresql and more.'
+      description: 'Working as a full-stack engineer with NodeJS, Express, VueJs, Typescript, Postgresql, Terraform and more.'
 
 - company: Atlassian
   start: 2018-03
