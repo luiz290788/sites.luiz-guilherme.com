@@ -66,6 +66,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "personal:serve:production"
+            },
+            "watch": {
+              "watch": true
             }
           }
         },

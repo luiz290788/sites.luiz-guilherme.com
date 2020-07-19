@@ -1,13 +1,22 @@
-import { getGreeting } from '../support/app.po';
+import { getTitle, getMenu } from '../support/homepage.po';
 
 describe('personal', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to personal!');
+  it('should display my name as first title in the page', () => {
+    getTitle().contains("Luiz Guilherme D'Abruzzo Pereira")
   });
+
+  it('should display menu', () => {
+    getMenu().find('a')
+      .should('have.length', 6)
+      .within(() => {
+        cy.contains('Home')
+        cy.contains('Blog')
+        cy.contains('Portfolio')
+        cy.contains('LinkedIn')
+        cy.contains('Github')
+        cy.contains('Twitter')
+      })
+  })
 });
