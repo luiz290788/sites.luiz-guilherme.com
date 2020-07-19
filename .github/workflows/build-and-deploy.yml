@@ -29,4 +29,5 @@ jobs:
       - name: Deploy affected websites
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          PERSONAL_NETLIFY_ID: ${{ secrets.PERSONAL_NETLIFY_ID }}
         run: yarn nx affected --target=deploy --base=${{ github.event.before }}
