@@ -45,7 +45,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/personal/jest.config.js",
-            "tsConfig": "apps/personal/tsconfig.spec.json",
             "passWithNoTests": true
           }
         },
