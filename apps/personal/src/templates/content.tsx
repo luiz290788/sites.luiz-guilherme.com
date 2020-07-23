@@ -11,6 +11,9 @@ const getStyles = (theme: Theme) => {
   const styles = css({
     h1: { margin: `0 0 ${theme.grid * 8}px` },
     h2: { margin: `${theme.grid * 6}px 0 ${theme.grid * 4}px` },
+    h3: { margin: `${theme.grid * 6}px 0 ${theme.grid * 4}px` },
+    ul: { margin: `0 0 ${theme.grid * 6}px` },
+    li: { listStyle: 'disc', marginLeft: `${theme.grid * 4}px` },
     p: { margin: `0 0 ${theme.grid * 2}px` },
     '.info': {
       margin: `${theme.grid * 4}px ${theme.grid * 2}px`,
