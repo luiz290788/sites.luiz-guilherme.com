@@ -30,4 +30,5 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           PERSONAL_NETLIFY_ID: ${{ secrets.PERSONAL_NETLIFY_ID }}
+          COVID19_BRAZIL_NETLIFY_ID: ${{ secrets.COVID19_BRAZIL_NETLIFY_ID }}
         run: yarn nx affected --target=deploy --base=${{ github.event.before }}

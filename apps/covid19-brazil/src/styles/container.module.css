@@ -1,0 +1,16 @@
+.container {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+}
+
+@media (min-width: 800px) {
+  .container {
+    margin: 0 calc(50% - 400px);
+  }
+}
+
+.content > * {
+  margin: 8px auto;
+}

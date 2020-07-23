@@ -41,3 +41,7 @@ Thumbs.db
 /apps/personal/node_modules
 /apps/personal/public
 /apps/personal/.cache
+
+/apps/covid19-brazil/node_modules
+/apps/covid19-brazil/public
+/apps/covid19-brazil/.cache

@@ -1,0 +1,25 @@
+@value colors: './colors.css';
+@value background, primary from colors;
+
+html {
+  font-family: "Lato", "Courier New", Courier, monospace;
+  color: primary;
+  background-color: background;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 34px;
+  margin: 10px 0;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+a,
+:active {
+  color: primary;
+}
