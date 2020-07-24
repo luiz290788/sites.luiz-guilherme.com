@@ -7,7 +7,7 @@ description: Moving all my websites into a monorepo using Nx.
 
 First time I heard about a monorepo was in a talk from a developer from Google.
 She quickly mentioned that they used a single repo for all the projects and right after
-she finished the talk and opened for questions the first questions was "When you say you
+she finished the talk and opened for questions the first question was "When you say you
 have a single repo, you mean a single git repo for all the projects?". She replied simply
 "Yes!" with most normality of the world. At the time, I thought it was a crazy nonsense
 idea. How do you coordinate everything? How do you avoid crazy conflicts? How do you build,
@@ -24,7 +24,7 @@ your library. I became an enthusiast of the monorepos.
 But you really need to have a good tooling around your monorepo to avoid performance
 problems while executing tasks inside your monorepo. This is not a simple task and the
 monorepo project that I worked in had a dedicated build team tackling those problems.
-Of course a small company cannot afford a whole team just to babysit your monorepo.
+Of course a small company cannot afford a whole team just to babysit its monorepo.
 
 ## Nx comes to save you
 
@@ -37,9 +37,9 @@ not?
 I always wanted to give it a try but never had a change that made sense to try it. But
 during the pandemic, I created a couple of sites (including this one and more to come)
 and as a single maintainer of those I felt a little bit the pain of having to upgrade
-everything, copy and pasting code from one site to the other and configuring environments,
-deployments and everything for every project. So I decided to learn and Nx and bring
-some monorepo goodness to my sites.
+everything, copy and pasting code from one site to the other and setting up environments,
+deployments and everything for every project. So I decided to learn Nx and bring some
+monorepo goodness to my sites.
 
 ## Process
 
