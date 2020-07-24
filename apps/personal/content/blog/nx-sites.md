@@ -1,6 +1,6 @@
 ---
 title: 'Nx: Monorepo for my sites'
-date: 2020-07-18
+date: 2020-07-23
 keywords: nx, monorepo, Gatsby, typescript, emotion
 description: Moving all my websites into a monorepo using Nx.
 ---
