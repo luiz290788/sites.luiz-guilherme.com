@@ -55,6 +55,10 @@ export const Layout: React.FunctionComponent<Props> = ({ children }) => {
               fontWeight: 400,
               fontSize: 20,
             },
+            h3: {
+              fontWeight: 400,
+              fontSize: 18,
+            },
             a: {
               '&:visited': {
                 color: 'inherit',
