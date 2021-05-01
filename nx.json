@@ -28,13 +28,6 @@
     "personal-e2e": {
       "tags": [],
       "implicitDependencies": ["personal"]
-    },
-    "covid19-brazil": {
-      "tags": []
-    },
-    "covid19-brazil-e2e": {
-      "tags": [],
-      "implicitDependencies": ["covid19-brazil"]
     }
   }
 }
