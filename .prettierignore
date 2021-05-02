@@ -10,3 +10,7 @@
 /apps/covid19-brazil/node_modules
 /apps/covid19-brazil/public
 /apps/covid19-brazil/.cache
+
+/apps/luiz-guilherme.com/node_modules
+/apps/luiz-guilherme.com/public
+/apps/luiz-guilherme.com/.cache

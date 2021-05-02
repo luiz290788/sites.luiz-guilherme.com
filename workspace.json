@@ -1,5 +1,74 @@
 {
   "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/gatsby"
+  },
+  "defaultProject": "personal",
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "linter": "eslint",
+        "babel": true
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/gatsby": {
+      "application": {
+        "style": "@emotion/styled"
+      }
+    }
+  },
   "projects": {
     "personal": {
       "root": "apps/personal",
@@ -48,9 +117,7 @@
             "jestConfig": "apps/personal/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/apps/personal"
-          ]
+          "outputs": ["coverage/apps/personal"]
         },
         "deploy": {
           "builder": "@nrwl/workspace:run-commands",
@@ -87,82 +154,81 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/personal-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/personal-e2e/**/*"
-            ]
+            "tsConfig": ["apps/personal-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/personal-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "luiz-guilherme.com": {
+      "root": "apps/luiz-guilherme.com",
+      "sourceRoot": "apps/luiz-guilherme.com/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/gatsby:build",
+          "options": {
+            "outputPath": "apps/luiz-guilherme.com/public",
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "luiz-guilherme.com:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "luiz-guilherme.com:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/luiz-guilherme.com/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/luiz-guilherme.com"],
+          "options": {
+            "jestConfig": "apps/luiz-guilherme.com/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "luiz-guilherme.com-e2e": {
+      "root": "apps/luiz-guilherme.com-e2e",
+      "sourceRoot": "apps/luiz-guilherme.com-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/luiz-guilherme.com-e2e/cypress.json",
+            "tsConfig": "apps/luiz-guilherme.com-e2e/tsconfig.e2e.json",
+            "devServerTarget": "luiz-guilherme.com:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "luiz-guilherme.com:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/luiz-guilherme.com-e2e/**/*.{js,ts}"]
           }
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/gatsby"
-  },
-  "schematics": {
-    "@nrwl/workspace": {
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/cypress": {
-      "cypress-project": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/react": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/web": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/node": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nx-plugin": {
-      "plugin": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nest": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/express": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/gatsby": {
-      "application": {}
-    }
-  },
-  "defaultProject": "personal"
+  }
 }

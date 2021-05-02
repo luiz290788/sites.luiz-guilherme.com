@@ -1,8 +1,4 @@
 {
-  "npmScope": "sites.luiz-guilherme.com",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": {
@@ -14,6 +10,10 @@
     "tsconfig.base.json": "*",
     ".eslintrc.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "sites.luiz-guilherme.com",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -29,6 +29,13 @@
     "personal-e2e": {
       "tags": [],
       "implicitDependencies": ["personal"]
+    },
+    "luiz-guilherme.com": {
+      "tags": []
+    },
+    "luiz-guilherme.com-e2e": {
+      "tags": [],
+      "implicitDependencies": ["luiz-guilherme.com"]
     }
   }
 }
