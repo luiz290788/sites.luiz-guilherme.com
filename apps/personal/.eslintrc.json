@@ -11,5 +11,22 @@
     "@typescript-eslint/camelcase": "off"
   },
   "extends": ["plugin:@nrwl/nx/react", "../../.eslintrc"],
-  "ignorePatterns": ["!**/*", "public"]
+  "ignorePatterns": ["!**/*", "public"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["apps/personal/tsconfig.*?.json"]
+      },
+      "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
 }
