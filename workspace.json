@@ -31,14 +31,15 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/personal/tsconfig.json",
-              "apps/personal/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/personal/**/*"]
+            "lintFilePatterns": [
+              "apps/personal/**/*.spec.ts",
+              "apps/personal/**/*.spec.tsx",
+              "apps/personal/**/*.spec.js",
+              "apps/personal/**/*.spec.jsx",
+              "apps/personal/**/*.d.ts"
+            ]
           }
         },
         "test": {
@@ -69,7 +70,6 @@
           "builder": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/personal-e2e/cypress.json",
-            "tsConfig": "apps/personal-e2e/tsconfig.e2e.json",
             "devServerTarget": "personal:serve"
           },
           "configurations": {
@@ -84,8 +84,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/personal-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/personal-e2e/**/*"]
+            "tsConfig": [
+              "apps/personal-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/personal-e2e/**/*"
+            ]
           }
         }
       }
