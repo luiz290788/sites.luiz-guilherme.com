@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import React from 'react';
 import { Theme } from '../../styles/theme';
 import { useStyles } from '../../styles/useStyles';
@@ -39,7 +39,7 @@ export const Timeline: React.FunctionComponent<Props> = ({ children }) => {
       <div css={timelineStyles} />
       {React.Children.toArray(children)
         .filter(
-          (child) => isReactElement(child) && child.type === TimelineElement,
+          (child) => isReactElement(child) && child.type === TimelineElement
         )
         .map((child) => isReactElement(child) && child)}
     </div>

@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { graphql } from 'gatsby';
 import 'prismjs/themes/prism-tomorrow.css';
 import React from 'react';

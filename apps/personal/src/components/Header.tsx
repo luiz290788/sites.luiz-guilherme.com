@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const headerStyles = css({
@@ -30,7 +30,7 @@ export const Header: React.FunctionComponent<Props> = () => {
           }
         }
       }
-    `,
+    `
   );
 
   return (

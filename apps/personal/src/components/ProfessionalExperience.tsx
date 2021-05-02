@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import { Timeline, TimelineElement } from './Timeline';
 import { StartEnd } from './StartEnd';
@@ -25,11 +25,11 @@ const experienceStyles = css({
 });
 
 type PositionProps = {
-  title: string,
-  start: Date,
-  end: Date,
-  current: boolean,
-  description: string,
+  title: string;
+  start: Date;
+  end: Date;
+  current: boolean;
+  description: string;
 };
 
 const Position: React.FunctionComponent<PositionProps> = ({
@@ -49,15 +49,15 @@ const Position: React.FunctionComponent<PositionProps> = ({
 type ResponseType = {
   allProfessionalExperience: {
     nodes: {
-      company: string,
-      start: Date,
-      end: Date,
-      current: boolean,
-      description: string,
-      link: string,
-      positions: PositionProps[],
-    }[],
-  },
+      company: string;
+      start: Date;
+      end: Date;
+      current: boolean;
+      description: string;
+      link: string;
+      positions: PositionProps[];
+    }[];
+  };
 };
 
 export const ProfessionalExperience: React.FunctionComponent = () => {
@@ -84,7 +84,7 @@ export const ProfessionalExperience: React.FunctionComponent = () => {
           }
         }
       }
-    `,
+    `
   );
   return (
     <React.Fragment>
@@ -106,7 +106,7 @@ export const ProfessionalExperience: React.FunctionComponent = () => {
                 ))}
               </div>
             </TimelineElement>
-          ),
+          )
         )}
       </Timeline>
     </React.Fragment>

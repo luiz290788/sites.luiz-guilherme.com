@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { graphql, Link } from 'gatsby';
 import moment from 'moment';
 import React, { Fragment } from 'react';
@@ -133,7 +133,7 @@ export default ({
           excerpt={description}
           date={new Date(date)}
         />
-      ),
+      )
     )}
   </Layout>
 );

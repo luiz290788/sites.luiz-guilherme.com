@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import { Timeline, TimelineElement } from './Timeline';
 import { StartEnd } from './StartEnd';
@@ -45,7 +45,7 @@ export const Education: React.FunctionComponent = () => {
           }
         }
       }
-    `,
+    `
   );
   return (
     <React.Fragment>
