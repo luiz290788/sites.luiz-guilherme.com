@@ -3,7 +3,7 @@
   "cli": {
     "defaultCollection": "@nrwl/gatsby"
   },
-  "defaultProject": "personal",
+  "defaultProject": "luiz-guilherme.com",
   "schematics": {
     "@nrwl/workspace": {
       "library": {
