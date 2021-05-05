@@ -1,0 +1,10 @@
+image: .devcontainer/Dockerfile
+tasks:
+  - init: npm install
+    command: npm ci
+
+vscode:
+  extensions:
+    - esbenp.prettier-vscode
+    - dbaeumer.vscode-eslint
+    - eamodio.gitlens

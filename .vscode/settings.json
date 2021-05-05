@@ -1,0 +1,4 @@
+{
+  "terminal.integrated.shell.linux": "/bin/fish",
+  "editor.minimap.enabled": false
+}

@@ -1,33 +1,25 @@
 {
-  "npmScope": "sites.luiz-guilherme.com",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "tsconfig.base.json": "*",
     "tslint.json": "*",
-    "nx.json": "*",
-    "tsconfig.base.json": "*"
+    ".eslintrc.json": "*",
+    "nx.json": "*"
   },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "luiz-guilherme.com",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "personal": {
-      "tags": []
-    },
-    "personal-e2e": {
+    "luiz-guilherme.com": { "tags": [] },
+    "luiz-guilherme.com-e2e": {
       "tags": [],
-      "implicitDependencies": ["personal"]
+      "implicitDependencies": ["luiz-guilherme.com"]
     }
   }
 }
