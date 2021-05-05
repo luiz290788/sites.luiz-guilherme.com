@@ -1,7 +1,7 @@
 {
   "dockerFile": "Dockerfile",
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/fish"
+    "terminal.integrated.shell.linux": "/bin/zsh"
   },
   "extensions": [
     "dbaeumer.vscode-eslint",
