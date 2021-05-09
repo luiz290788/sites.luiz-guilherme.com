@@ -18,18 +18,16 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: '14'
-      - name: Update npm
-        run: npm i -g npm@7
       - name: Install dependencies
-        run: npm ci
+        run: yarn install
       - name: Test affected websites
-        run: npx nx affected:test --base=${{ github.event.before }}
+        run: yarn nx affected:test --base=${{ github.event.before }}
       - name: e2e test affected websites
-        run: npx nx affected:e2e --base=${{ github.event.before }}
+        run: yarn nx affected:e2e --base=${{ github.event.before }}
       - name: Build affected websites
-        run: npx nx affected:build --base=${{ github.event.before }}
+        run: yarn nx affected:build --base=${{ github.event.before }}
       - name: Deploy affected websites
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           PERSONAL_NETLIFY_ID: ${{ secrets.PERSONAL_NETLIFY_ID }}
-        run: npx nx affected --target=deploy --base=${{ github.event.before }}
+        run: yarn nx affected --target=deploy --base=${{ github.event.before }}
