@@ -70,9 +70,8 @@ yarn nx g @nrwl/gatsby:app personal
 yarn nx g @nrwl/gatsby:app covid19-brazil
 ```
 
-[[info]]
-| While creating the website, you are prompted to choose which css solution you want
-| Nx to pre-configure for your website. In my case I've chosen [emotion](https://emotion.sh/).
+While creating the website, you are prompted to choose which css solution you want
+Nx to pre-configure for your website. In my case I've chosen [emotion](https://emotion.sh/).
 
 Nx configure a bunch of different things for you newly created project:
 
@@ -85,13 +84,12 @@ This will cut of lot of time for me! It also incentivizes me to start writing e2
 giving me everything configured and leaving me free to focus on the test writing instead
 of the library setup.
 
-[[info]]
-| A couple of days after I started the monorepo, I new major version of Nx was released.
-| Because of that update I was able to test the migrations feature of Nx. When I updated
-| the library it generated a `migrations.json` the necessary migrations to be performed
-| in my existing project. The migrations changed a little bit the organization of the
-| monorepo to adapt it the standards of the new major version. It was everything very
-| smooth. Hope all major upgrades are that smooth.
+A couple of days after I started the monorepo, I new major version of Nx was released.
+Because of that update I was able to test the migrations feature of Nx. When I updated
+the library it generated a `migrations.json` the necessary migrations to be performed
+in my existing project. The migrations changed a little bit the organization of the
+monorepo to adapt it the standards of the new major version. It was everything very
+smooth. Hope all major upgrades are that smooth.
 
 ### Move my website into it
 

@@ -55,14 +55,13 @@ export const mockOf = <T extends {}>(target: Partial<T> = {}, excludes = ['then'
   }) as Mocked<T>
 ```
 
-[[info]]
-| You probably noticed that second argument in the function: `excludes`. This is necessary
-| because there are some situations that we don't want our mock object to return a mock
-| function for specific properties. An example of this is when the mock object is returned
-| by a promise callback or awaited in a async/await function. The promise will check if that
-| object is a "thenable" by looking for the `then` function in the mock object which will always
-| be defined by our proxy. That's why we need to somehow tell the proxy to ignore some attributes
-| just returning `undefined`.
+You probably noticed that second argument in the function: `excludes`. This is necessary
+because there are some situations that we don't want our mock object to return a mock
+function for specific properties. An example of this is when the mock object is returned
+by a promise callback or awaited in a async/await function. The promise will check if that
+object is a "thenable" by looking for the `then` function in the mock object which will always
+be defined by our proxy. That's why we need to somehow tell the proxy to ignore some attributes
+just returning `undefined`.
 
 As for the types, I am casting the proxy to a `Mocked` type that takes advantage of Typescript
 Conditional Types to say that every function type in the mocked object also has the signature of

@@ -8,11 +8,10 @@ description: My journey through implementing of feature flags in my first VueJs 
 For my first task in my VueJS project, I had to implement a feature flag solution for the system.
 Basically what we needed is a `v-if` checking if the feature flag is enabled or not.
 
-[[info]]
-| Feature Flag is a technique used to change software behavior without changing the code. This is
-| a powerful technique that is useful is various use cases like gradual rollouts, A/B testing,
-| experimentation and quick rollbacks. Feature Flag can also add a lot of complexity to the software
-| and can become one of the biggest sources of technical debt.
+Feature Flag is a technique used to change software behavior without changing the code. This is
+a powerful technique that is useful is various use cases like gradual rollouts, A/B testing,
+experimentation and quick rollbacks. Feature Flag can also add a lot of complexity to the software
+and can become one of the biggest sources of technical debt.
 
 ## My initial solution
 
@@ -63,12 +62,11 @@ function render() {
 }
 ```
 
-[[info]]
-| You might be wondering what `with(this)` means. Turns out `with` is a not recommended
-| [statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with)
-| for extending the scope. This is basically adding everything inside of `this` to be
-| available on the scope. VueJs uses it to avoid having to add `this.` before all references
-| to `_c` and `_v` functions. But back to the main topic
+You might be wondering what `with(this)` means. Turns out `with` is a not recommended
+[statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with)
+for extending the scope. This is basically adding everything inside of `this` to be
+available on the scope. VueJs uses it to avoid having to add `this.` before all references
+to `_c` and `_v` functions. But back to the main topic
 
 And if we throw a `v-if` on the `ul`
 
@@ -133,11 +131,10 @@ loading not needed components and creating a long tree of components that won't 
 because the feature flag is disabled. These side effects could impact the time to interact
 of your application.
 
-[[info]]
-| This is the basis of the [difference](https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show)
-| between `v-if` and `v-show`. `v-show` is a "normal" directive that messes around with the
-| `display` css property of the element. My initial solution would function more like
-| `v-show`.
+This is the basis of the [difference](https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show)
+between `v-if` and `v-show`. `v-show` is a "normal" directive that messes around with the
+`display` css property of the element. My initial solution would function more like
+`v-show`.
 
 Turns out you can write directives for the compiler, I couldn't find much documentation
 about compiler directives. Digging into the compiler code I was able to write a directive

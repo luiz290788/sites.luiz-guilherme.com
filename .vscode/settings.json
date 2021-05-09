@@ -1,4 +1,5 @@
 {
-  "terminal.integrated.shell.linux": "/bin/fish",
-  "editor.minimap.enabled": false
+  "terminal.integrated.shell.linux": "/bin/zsh",
+  "editor.minimap.enabled": false,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

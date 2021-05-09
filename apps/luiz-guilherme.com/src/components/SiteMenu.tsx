@@ -52,10 +52,10 @@ export const SiteMenu: React.FunctionComponent<Props> = () => {
     <Menu>
       {homeLink && <Link to="/">Home</Link>}
       {pages.map(({ path, context: { meta: { title } } }) => (
-        <Link to={path}>{title}</Link>
+        <Link to={path} key={path}>{title}</Link>
       ))}
       {social.map(({ title, url }) => (
-        <ExternalLink url={url}>{title}</ExternalLink>
+        <ExternalLink url={url} key={url}>{title}</ExternalLink>
       ))}
     </Menu>
   );

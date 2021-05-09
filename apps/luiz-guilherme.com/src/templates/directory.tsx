@@ -74,8 +74,8 @@ const Meta: React.FunctionComponent<{
         <meta name="description" content={description} />
       </Helmet>
       <div css={metaStyles}>
-        {title ?? <h1>{title}</h1>}
-        {description ?? <p>{description}</p>}
+        {title && <h1>{title}</h1>}
+        {description && <p>{description}</p>}
       </div>
     </Fragment>
   );
@@ -111,12 +111,12 @@ type Props = {
       }[];
     };
   };
-  pathContext: { meta: { title: string; description: string } };
+  pageContext: { meta: { title: string; description: string } };
 };
 
 export default ({
   data: { allMarkdownRemark, site },
-  pathContext: { meta },
+  pageContext: { meta },
 }: Props) => (
   <Layout>
     {meta && <Meta {...meta} siteTitle={site.siteMetadata.title} />}
