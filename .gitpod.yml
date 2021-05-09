@@ -1,7 +1,4 @@
-image: .devcontainer/Dockerfile
-tasks:
-  - init: npm install
-    command: npm ci
+image: .gitpod.Dockerfile
 
 vscode:
   extensions:
