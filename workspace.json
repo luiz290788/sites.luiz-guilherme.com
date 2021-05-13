@@ -1,10 +1,20 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/gatsby" },
+  "cli": {
+    "defaultCollection": "@nrwl/gatsby"
+  },
   "defaultProject": "luiz-guilherme.com",
   "generators": {
-    "@nrwl/react": { "application": { "babel": true } },
-    "@nrwl/gatsby": { "application": { "style": "@emotion/styled" } }
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/gatsby": {
+      "application": {
+        "style": "@emotion/styled"
+      }
+    }
   },
   "projects": {
     "luiz-guilherme.com": {
@@ -20,11 +30,15 @@
             "color": true,
             "profile": false
           },
-          "configurations": { "production": {} }
+          "configurations": {
+            "production": {}
+          }
         },
         "serve": {
           "executor": "@nrwl/gatsby:server",
-          "options": { "buildTarget": "luiz-guilherme.com:build" },
+          "options": {
+            "buildTarget": "luiz-guilherme.com:build"
+          },
           "configurations": {
             "production": {
               "buildTarget": "luiz-guilherme.com:build:production"
@@ -46,7 +60,7 @@
           }
         },
         "deploy": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
               {
